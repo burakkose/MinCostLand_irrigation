@@ -42,7 +42,6 @@ public:
 
 private:
     vmap vertexMap;
-
 };
 
 #endif // GRAPH_H

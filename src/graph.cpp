@@ -98,4 +98,7 @@ void Graph::kruskal(){
         c_adj.pop_front();
 
     }
+    /***********************************
+     * Dosyaya yazdırma işlemini yapmalsıın
+     * **************************************/
 }

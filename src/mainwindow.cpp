@@ -25,7 +25,7 @@ void MainWindow::on_browseButton_clicked()
     }
 }
 
-void MainWindow::on_solveButton_clicked()
+void MainWindow::on_solveButton_clicked() // Solve
 {
     Graph g;
     g.readFile(ui->location->text());

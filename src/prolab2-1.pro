@@ -15,11 +15,15 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     graph.cpp \
-    unionfind.cpp
+    unionfind.cpp \
+    drawgraph.cpp \
+    graphicscreen.cpp
 
 HEADERS  += mainwindow.h \
-    land.h \
     graph.h \
-    unionfind.h
+    unionfind.h \
+    drawgraph.h \
+    graphicscreen.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    graphicscreen.ui
