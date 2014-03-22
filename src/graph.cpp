@@ -1,5 +1,6 @@
 #include "graph.h"
 #include "unionfind.h"
+#include "graphicwindow.h"
 #include <QtAlgorithms>
 
 QString str_split(QString &str,char delim){
@@ -70,8 +71,8 @@ void Graph::readFile(const QString &fileLoca){
         inFile.close();
 
     }
-    kruskal();
-
+    GraphicWindow asd;
+    asd.setLand(vertexMap.begin(),vertexMap.end(),vertexMap.size());
 }
 
 void Graph::kruskal(){

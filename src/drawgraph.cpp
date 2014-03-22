@@ -3,10 +3,6 @@
 
 const double PI = 3.141592653589793238463;
 
-DrawGraph::DrawGraph()
-{
-}
-
 template<typename Type>
 DrawGraph::DrawGraph(Type begin , Type end , int keySize){
     centerScreen.cor_X    = 240;

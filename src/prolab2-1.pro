@@ -17,13 +17,13 @@ SOURCES += main.cpp\
     graph.cpp \
     unionfind.cpp \
     drawgraph.cpp \
-    graphicscreen.cpp
+    graphicwindow.cpp
 
 HEADERS  += mainwindow.h \
     graph.h \
     unionfind.h \
     drawgraph.h \
-    graphicscreen.h
+    graphicwindow.h
 
 FORMS    += mainwindow.ui \
-    graphicscreen.ui
+    graphicwindow.ui
