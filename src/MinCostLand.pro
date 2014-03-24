@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QMAKE_CXXFLAGS_WARN_ON += -Wno-reorder
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,17 +14,17 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    graph.cpp \
-    unionfind.cpp \
-    drawgraph.cpp \
-    graphicwindow.cpp
+           mainwindow.cpp \
+           graph.cpp \
+           drawgraph.cpp \
+           graphicwindow.cpp \
+           disjointset.cpp
 
 HEADERS  += mainwindow.h \
-    graph.h \
-    unionfind.h \
-    drawgraph.h \
-    graphicwindow.h
+            graph.h \
+            drawgraph.h \
+            graphicwindow.h \
+            disjointset.h
 
 FORMS    += mainwindow.ui \
-    graphicwindow.ui
+            graphicwindow.ui

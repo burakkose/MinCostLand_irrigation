@@ -1,9 +1,9 @@
-#ifndef UNIONFIND_H
-#define UNIONFIND_H
+#ifndef DISJOINTSET_H
+#define DISJOINTSET_H
 
 #include "graph.h"
 
-class UnionFind
+class DisJointSet
 {
 private:
     class Node{
@@ -13,7 +13,7 @@ private:
         Node():height(0),parent(this){}
     };
 public:
-    UnionFind(Graph::vmap::iterator,
+    DisJointSet(Graph::vmap::iterator,
               Graph::vmap::iterator,
               QMap<QString,Node*>&);
     Node* find(Node*);
@@ -21,4 +21,4 @@ public:
     friend class Graph;
 };
 
-#endif // UNIONFIND_H
+#endif // DISJOINTSET_H
