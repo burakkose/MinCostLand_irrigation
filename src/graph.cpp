@@ -8,7 +8,7 @@ QString str_split(QString &str,char delim){
     QStringList temp;
 
     temp = str.split(delim);
-    str = temp.at(1);
+    str  = temp.at(1);
 
     return temp.first();
 }

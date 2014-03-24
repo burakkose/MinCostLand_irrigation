@@ -42,7 +42,7 @@ public:
     ~Graph();
 
 private:
-    vmap vertexMap;
+    vmap vertexMap ;
 };
 
 #endif // GRAPH_H

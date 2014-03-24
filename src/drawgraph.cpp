@@ -4,7 +4,7 @@
 const double PI = 3.141592653589793238463;
 
 DrawGraph::DrawGraph(Graph::vmap::const_iterator begin
-                     ,Graph::vmap::const_iterator end ,
+                     ,Graph::vmap::const_iterator end,
                      int keySize){
     centerScreen.cor_X    = 240;
     centerScreen.cor_Y    = 240;

@@ -17,7 +17,7 @@ public:
     DrawGraph(){}
     DrawGraph(Graph::vmap::const_iterator,
               Graph::vmap::const_iterator, int);
-    void drawGraph();
+    void   drawGraph();
     double getBigRadius(){return radius;}
     double getNodeRadius(){return nodeRadius;}
 
