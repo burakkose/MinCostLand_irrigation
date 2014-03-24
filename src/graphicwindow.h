@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QPainter>
+#include "graph.h"
 #include "drawgraph.h"
 
 namespace Ui {
@@ -15,14 +16,14 @@ class GraphicWindow : public QDialog
 
 public:
     explicit GraphicWindow(QWidget *parent = 0);
-    template<typename Type>
-    void setLand(Type, Type, int);
+    void setLand(Graph::vmap::const_iterator,
+                 Graph::vmap::const_iterator,int);
     void paintEvent(QPaintEvent*);
     ~GraphicWindow();
 
 private:
     Ui::GraphicWindow *ui;
-
+    typedef QMap<QString,DrawGraph::Coordinate*>::iterator dmap;
 protected:
     DrawGraph* land;
 
