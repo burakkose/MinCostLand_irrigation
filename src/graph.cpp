@@ -1,5 +1,5 @@
 #include "graph.h"
-#include "unionfind.h"
+#include "disjointset.h"
 #include "graphicwindow.h"
 #include <QtAlgorithms>
 
@@ -41,21 +41,22 @@ Vertex *Graph::getVertex(const QString &vertexName){
     }
 
     return itr.value();
+
 }
 
 void Graph::addEdge(const QString &sourceName, const QString &destName, double cost){
 
     Vertex *v = getVertex(sourceName);
     Vertex *w = getVertex(destName);
-    v->adj.push_back(Edge(sourceName,destName,cost));
+    v->adj.push_back(Edge(v->name,w->name,cost));
 
 }
 
-void Graph::readFile(const QString &fileLoca){
+void Graph::readWrite(const QString &fileLoca){
 
     QFile inFile(fileLoca);
 
-    if(inFile.open(QIODevice::ReadOnly)){
+    if(inFile.open(QIODevice::ReadWrite | QIODevice::Text)){
 
         QTextStream in(&inFile);
         while(!in.atEnd()){
@@ -68,14 +69,14 @@ void Graph::readFile(const QString &fileLoca){
             this->addEdge(v,m,price);
         }
 
+        in << endl << "cost : " << kruskal();
         inFile.close();
 
     }
-    GraphicWindow asd;
-    asd.setLand(vertexMap.begin(),vertexMap.end(),vertexMap.size());
+
 }
 
-void Graph::kruskal(){
+double Graph::kruskal(){
     QVector <Edge> c_adj;
     for(vmap::iterator it = vertexMap.begin() ; it != vertexMap.end() ; it++){
         for(QVector <Edge>::iterator tor = it.value()->adj.begin() ; tor !=it.value()->adj.end() ; ++tor)
@@ -84,8 +85,8 @@ void Graph::kruskal(){
 
     qSort(c_adj.begin(),c_adj.end(),sortEdges);
 
-    QMap<QString,UnionFind::Node*> nodes;
-    UnionFind solve(vertexMap.begin(),vertexMap.end(),nodes);
+    QMap<QString,DisJointSet::Node*> nodes;
+    DisJointSet solve(vertexMap.begin(),vertexMap.end(),nodes);
     double cost = 0;
 
     while(c_adj.size() > 0){
@@ -99,7 +100,17 @@ void Graph::kruskal(){
         c_adj.pop_front();
 
     }
-    /***********************************
-     * Dosyaya yazdırma işlemini yapmalsıın
-     * **************************************/
+
+    return cost;
+
+}
+void Graph::drawGraph(){
+    GraphicWindow asd;
+
+    asd.setLand(vertexMap.cbegin(),
+                vertexMap.cend(),
+                vertexMap.size());
+
+    asd.exec();
+
 }

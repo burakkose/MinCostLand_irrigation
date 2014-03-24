@@ -34,10 +34,11 @@ class Graph
 public:
     typedef QMap<QString,Vertex *> vmap;
     Graph();
-    void addEdge( const QString &,
-                  const QString &, double);
-    void readFile(const QString &);
-    void kruskal();
+    void addEdge  (const QString &,
+                   const QString &, double);
+    void readWrite(const QString &);
+    void drawGraph();
+    double kruskal();
     ~Graph();
 
 private:

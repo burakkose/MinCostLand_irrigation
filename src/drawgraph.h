@@ -3,6 +3,7 @@
 
 #include <QMap>
 #include <QString>
+#include "graph.h"
 
 class DrawGraph
 {
@@ -14,13 +15,17 @@ private:
 
 public:
     DrawGraph(){}
-    template<typename Type>
-    DrawGraph(Type, Type, int);
+    DrawGraph(Graph::vmap::const_iterator,
+              Graph::vmap::const_iterator, int);
     void drawGraph();
+    double getBigRadius(){return radius;}
+    double getNodeRadius(){return nodeRadius;}
 
 private:
     double radius;
     double nodeRadius;
+
+public:
     QMap<QString,Coordinate*> corMap;
     Coordinate centerScreen;
 };
