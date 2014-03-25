@@ -22,6 +22,7 @@ struct Edge{
 struct Vertex{
     QString name;
     QVector<Edge> adj;
+
     Vertex(const QString &nm)
         :name(nm){}
 
@@ -43,6 +44,7 @@ public:
 
 private:
     vmap vertexMap ;
+
 };
 
 #endif // GRAPH_H

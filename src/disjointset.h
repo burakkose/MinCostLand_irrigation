@@ -12,13 +12,15 @@ private:
         Node* parent;
         Node():height(0),parent(this){}
     };
+
 public:
     DisJointSet(Graph::vmap::iterator,
-              Graph::vmap::iterator,
-              QMap<QString,Node*>&);
+                Graph::vmap::iterator,
+                QMap<QString,Node*>&);
     Node* find(Node*);
     void merge(Node*,Node*);
     friend class Graph;
+
 };
 
 #endif // DISJOINTSET_H

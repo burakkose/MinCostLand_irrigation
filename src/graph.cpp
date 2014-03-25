@@ -11,10 +11,12 @@ QString str_split(QString &str,char delim){
     str  = temp.at(1);
 
     return temp.first();
+
 }
 
 bool sortEdges(const Edge &e1 , const Edge &e2){
     return e1.cost < e2.cost ;
+
 }
 
 Graph::Graph()
@@ -23,7 +25,6 @@ Graph::Graph()
 
 Graph::~Graph()
 {
-
     for(vmap::iterator itr = vertexMap.begin();
         itr != vertexMap.end() ; ++itr)
         delete itr.value();
@@ -31,7 +32,6 @@ Graph::~Graph()
 }
 
 Vertex *Graph::getVertex(const QString &vertexName){
-
     vmap::iterator itr = vertexMap.find(vertexName);
 
     if(itr == vertexMap.end()){
@@ -45,15 +45,12 @@ Vertex *Graph::getVertex(const QString &vertexName){
 }
 
 void Graph::addEdge(const QString &sourceName, const QString &destName, double cost){
-
     Vertex *v = getVertex(sourceName);
     Vertex *w = getVertex(destName);
     v->adj.push_back(Edge(v->name,w->name,cost));
 
 }
-
 void Graph::readWrite(const QString &fileLoca){
-
     QFile inFile(fileLoca);
 
     if(inFile.open(QIODevice::ReadWrite | QIODevice::Text)){
@@ -105,12 +102,12 @@ double Graph::kruskal(){
 
 }
 void Graph::drawGraph(){
-    GraphicWindow asd;
+    GraphicWindow screen;
 
-    asd.setLand(vertexMap.cbegin(),
-                vertexMap.cend(),
-                vertexMap.size());
+    screen.setLand(vertexMap.cbegin(),
+                   vertexMap.cend(),
+                   vertexMap.size());
 
-    asd.exec();
+    screen.exec(); // show
 
 }
