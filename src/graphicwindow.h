@@ -24,6 +24,7 @@ public:
 private:
     Ui::GraphicWindow *ui;
     typedef QMap<QString,DrawGraph::Coordinate*>::iterator dmap;
+
 protected:
     DrawGraph* land;
 
