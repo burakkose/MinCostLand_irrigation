@@ -13,8 +13,20 @@
     <height>133</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>433</width>
+    <height>133</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>433</width>
+    <height>133</height>
+   </size>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Minimum Cost Land Irrigation</string>
   </property>
   <property name="windowIcon">
    <iconset>
