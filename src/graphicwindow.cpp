@@ -10,8 +10,11 @@ GraphicWindow::GraphicWindow(QWidget *parent) :
 
 void GraphicWindow::setLand(Graph::vmap::const_iterator begin,
                             Graph::vmap::const_iterator end,
-                            int keySize){
-    land = new DrawGraph(begin,end,keySize);
+                            int keySize,QString &name){
+
+    land      = new DrawGraph(begin,end,keySize);
+    sNodeName = name;
+
 }
 
 void GraphicWindow::paintEvent(QPaintEvent *e){
@@ -19,9 +22,9 @@ void GraphicWindow::paintEvent(QPaintEvent *e){
     QPen penBegin , penLine;
 
     penBegin.setStyle(Qt::DotLine);
-    penBegin.setColor(Qt::blue);
+    penBegin.setColor(Qt::black);
     penLine.setStyle(Qt::SolidLine);
-    penLine.setColor(Qt::darkBlue);
+    penLine.setColor(Qt::darkRed);
 
     painter.setRenderHint(QPainter::Antialiasing);
     painter.setPen(penBegin);
@@ -30,14 +33,15 @@ void GraphicWindow::paintEvent(QPaintEvent *e){
     double y = land->centerScreen.cor_Y;
     double r = land->getBigRadius();
 
-    painter.drawEllipse(QPoint(x,y),r,r);
-
-    painter.setPen(penLine);
-    painter.setBrush(Qt::darkRed);
+    painter.drawEllipse(QPointF(x,y),r,r);
 
     Graph::vmap* pVertexMap = &land->cVertexMap;
 
     for(dmap it = land->corMap.begin() ; it !=land->corMap.end();++it){
+
+        painter.setPen(penLine);
+        painter.setBrush(Qt::darkBlue);
+
         QString nodeName = it.key();
 
         x = it.value()->cor_X;
@@ -48,17 +52,27 @@ void GraphicWindow::paintEvent(QPaintEvent *e){
             ite != pVertexMap->value(nodeName)->adj.end();ite++){
 
             QString destNodeName = ite->destName;
+
             double x2 = land->corMap.value(destNodeName)->cor_X;
             double y2 = land->corMap.value(destNodeName)->cor_Y;
-            painter.drawLine(QPoint(x,y),QPoint(x2,y2)); // draw connection
 
+            painter.drawLine(QPointF(x,y),QPointF(x2,y2)); // draw connection
+
+            double x3 = (x + x2) / 2;
+            double y3 = (y + y2) / 2;
+
+            painter.drawText(QPointF(x3,y3),QString::number(ite->cost));
         }
 
-        painter.drawEllipse(QPoint(x,y),r,r); //draw node
-        //painter.drawText(QPoint(x,y),nodeName);
+        if(nodeName == sNodeName) // for special node
+            painter.setBrush(Qt::darkCyan);
+
+        painter.drawEllipse(QPointF(x,y),r,r); //draw node
+
+        painter.setPen(Qt::yellow);
+        painter.drawText(QPointF(x,y),nodeName);
     }
 }
-
 GraphicWindow::~GraphicWindow()
 {
     delete ui;

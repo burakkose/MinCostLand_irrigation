@@ -17,7 +17,8 @@ class GraphicWindow : public QDialog
 public:
     explicit GraphicWindow(QWidget *parent = 0);
     void setLand(Graph::vmap::const_iterator,
-                 Graph::vmap::const_iterator,int);
+                 Graph::vmap::const_iterator,
+                 int , QString & );
     void paintEvent(QPaintEvent*);
     ~GraphicWindow();
 
@@ -27,6 +28,7 @@ private:
 
 protected:
     DrawGraph* land;
+    QString sNodeName;          // special node
 
 };
 
