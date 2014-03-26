@@ -29,8 +29,8 @@
    <string>Minimum Cost Land Irrigation</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>../../../iconn.png</normaloff>../../../iconn.png</iconset>
+   <iconset resource="image.qrc">
+    <normaloff>:/image/icon.png</normaloff>:/image/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -82,6 +82,8 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
  <connections/>
 </ui>

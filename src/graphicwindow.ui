@@ -23,9 +23,15 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Land</string>
+   <string>Land Graphic Screen </string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="image.qrc">
+    <normaloff>:/image/icon.png</normaloff>:/image/icon.png</iconset>
   </property>
  </widget>
- <resources/>
+ <resources>
+  <include location="image.qrc"/>
+ </resources>
  <connections/>
 </ui>
