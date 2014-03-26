@@ -28,3 +28,8 @@ HEADERS  += mainwindow.h \
 
 FORMS    += mainwindow.ui \
             graphicwindow.ui
+
+OTHER_FILES +=
+
+RESOURCES += \
+            image.qrc
