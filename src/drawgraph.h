@@ -11,11 +11,9 @@ private:
     struct Coordinate{
         double cor_X;
         double cor_Y;
-        int    area;
 
         Coordinate()
-            :cor_X(0),cor_Y(0),
-              area(-1){}
+            :cor_X(0),cor_Y(0){}
 
     };
 

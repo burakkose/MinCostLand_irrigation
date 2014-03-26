@@ -20,13 +20,6 @@ DrawGraph::DrawGraph(Graph::vmap::const_iterator begin,
         cor->cor_X = centerScreen.cor_X + radius * sin(radianAngle);
         cor->cor_Y = centerScreen.cor_Y - radius * cos(radianAngle);
 
-        if(cor->cor_Y != centerScreen.cor_Y){
-            if(cor->cor_Y < centerScreen.cor_Y)
-                cor->area = 1;
-            else
-                cor->area = 2;
-        }
-
         corMap[it.key()]     = cor;
         cVertexMap[it.key()] = it.value();
         angle += perAngle;
