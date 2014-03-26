@@ -44,6 +44,7 @@ public:
 
 private:
     vmap vertexMap ;
+    QString source; // special node
 
 };
 

@@ -56,6 +56,7 @@ void Graph::readWrite(const QString &fileLoca){
     if(inFile.open(QIODevice::ReadWrite | QIODevice::Text)){
 
         QTextStream in(&inFile);
+        source = in.readLine();
         while(!in.atEnd()){
             QString v,m;
             QString line = in.readLine();
@@ -106,7 +107,8 @@ void Graph::drawGraph(){
 
     screen.setLand(vertexMap.cbegin(),
                    vertexMap.cend(),
-                   vertexMap.size());
+                   vertexMap.size(),
+                   source);
 
     screen.exec(); // show
 
