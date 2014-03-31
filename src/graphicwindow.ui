@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Land Graphic Screen </string>
+   <string>Your Land Graphic Screen</string>
   </property>
   <property name="windowIcon">
    <iconset resource="image.qrc">
