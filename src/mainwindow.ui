@@ -26,7 +26,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Minimum Cost Land Irrigation</string>
+   <string>Minimum Low-cost Land Irrigation</string>
   </property>
   <property name="windowIcon">
    <iconset resource="image.qrc">
