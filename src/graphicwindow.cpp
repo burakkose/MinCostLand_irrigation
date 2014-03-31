@@ -37,6 +37,8 @@ void GraphicWindow::paintEvent(QPaintEvent *e){
 
     Graph::vmap* pVertexMap = &land->cVertexMap;
 
+    r = land->getNodeRadius();
+
     for(dmap it = land->corMap.begin() ; it !=land->corMap.end();++it){
 
         painter.setPen(penLine);
@@ -46,7 +48,6 @@ void GraphicWindow::paintEvent(QPaintEvent *e){
 
         x = it.value()->cor_X;
         y = it.value()->cor_Y;
-        r = land->getNodeRadius();
 
         for(QVector<Edge>::iterator ite = pVertexMap->value(nodeName)->adj.begin();
             ite != pVertexMap->value(nodeName)->adj.end();ite++){
@@ -56,21 +57,24 @@ void GraphicWindow::paintEvent(QPaintEvent *e){
             double x2 = land->corMap.value(destNodeName)->cor_X;
             double y2 = land->corMap.value(destNodeName)->cor_Y;
 
+            painter.setPen(penLine);
             painter.drawLine(QPointF(x,y),QPointF(x2,y2)); // draw connection
 
             double x3 = (x + x2) / 2;
             double y3 = (y + y2) / 2;
 
-            painter.drawText(QPointF(x3,y3),QString::number(ite->cost));
+            painter.setPen(Qt::blue);
+            painter.drawText(QPointF(x3,y3-5),QString::number(ite->cost));
         }
 
         if(nodeName == sNodeName) // for special node
             painter.setBrush(Qt::darkCyan);
 
+        painter.setPen(penLine);
         painter.drawEllipse(QPointF(x,y),r,r); //draw node
 
-        painter.setPen(Qt::yellow);
-        painter.drawText(QPointF(x,y),nodeName);
+        painter.setPen(Qt::yellow); // nodeName color
+        painter.drawText(QRect(x-r, y-r, 2*r, 2*r),Qt::AlignCenter,nodeName); // print node name
     }
 }
 GraphicWindow::~GraphicWindow()
