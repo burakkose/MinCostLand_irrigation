@@ -1,7 +1,8 @@
 #-------------------------------------------------
 #
 # Project created by QtCreator 2014-03-12T13:27:50
-#
+#           Burak KOSE
+#               using Graph Algorithm and Graphics
 #-------------------------------------------------
 
 QT       += core gui
